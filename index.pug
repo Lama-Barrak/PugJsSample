@@ -1,0 +1,55 @@
+include includes/MyVars
+include includes/mymixin
+doctype
+html
+ head
+  meta(charset='utf-8')
+  meta(name='discription',content='Learn PugJs')
+  block pageTitle
+   title My Resume
+  include includes/styles.pug
+ body
+  //- Inheritance
+  block testingContent
+    .main This Content from Main Page :)
+  //-  mixin with arguments
+  div(class='skill' , id='d1')
+   +feature('Fast Support')
+   +feature('Clean Code')
+   h2 My Skills
+   //- Start My Skills
+   ul.main-list
+    each val in mySkills
+     li= val
+   +otherskills
+  
+   //- Start My Skills
+   p#p1 
+    //-  Tag && String Interploation
+    | My Name is #[b Lama] and I Love 
+    b #{lang}
+  |
+  |
+  . 
+    this is dot block 
+  form
+   h2.contact-title Contact Me
+   input(
+       class='f-c',
+       type='text',
+       name='user'
+    )
+   input(
+       class='f-c',
+       type='email',
+       name='email'
+    )
+   input(
+       class='f-c',
+       type='text',
+       name='sub'
+    )
+   button(style={'background-color': '#4a45e8','color':'white'}) Send
+   button Reset
+
+
